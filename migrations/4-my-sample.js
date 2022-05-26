@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("styles", {
+    await queryInterface.createTable("mySamples", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,15 +12,26 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      backgroundImage: {
-        type: Sequelize.STRING,
-      },
-      image: {
+      type: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      content: {
+      tone: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      bpm: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL",
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("styles");
+    await queryInterface.dropTable("mySamples");
   },
 };

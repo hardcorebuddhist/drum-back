@@ -10,18 +10,31 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-      },
-      url: {
-        type: Sequelize.STRING,
+        allowNull: false,
       },
       type: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      url: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       tone: {
         type: Sequelize.STRING,
       },
       bpm: {
         type: Sequelize.INTEGER,
+      },
+      styleId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "styles",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL",
       },
       createdAt: {
         allowNull: false,

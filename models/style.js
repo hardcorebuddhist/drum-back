@@ -13,7 +13,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   style.init(
     {
-      name: DataTypes.STRING,
+      name: { type: DataTypes.STRING, allowNull: false },
+      backgroundImage: { type: DataTypes.STRING, allowNull: false },
+      image: { type: DataTypes.STRING, allowNull: false },
+      content: { type: DataTypes.STRING },
     },
     {
       sequelize,

@@ -9,6 +9,7 @@ module.exports = {
           name: "IM",
           email: "im.energo@gmail.com",
           password: "test",
+          age: 39,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
