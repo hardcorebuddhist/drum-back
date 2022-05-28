@@ -28,13 +28,23 @@ module.exports = {
       },
       styleId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+
         references: {
           model: "styles",
           key: "id",
         },
         onUpdate: "CASCADE",
-        onDelete: "SET NULL",
+        onDelete: "CASCADE",
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+
+        references: {
+          model: "users",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,

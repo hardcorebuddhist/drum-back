@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       sample.belongsTo(models.style, { foreignKey: "styleId" });
+      sample.belongsToMany(models.user, {
+        through: "myTracks",
+        foreignKey: "userId",
+      });
     }
   }
   sample.init(
@@ -18,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       url: { type: DataTypes.STRING, allowNull: false },
       tone: { type: DataTypes.STRING },
       bpm: { type: DataTypes.INTEGER },
-      styleId: { type: DataTypes.INTEGER, allowNull: false },
+      styleId: { type: DataTypes.INTEGER },
+      userId: { type: DataTypes.INTEGER },
     },
     {
       sequelize,
