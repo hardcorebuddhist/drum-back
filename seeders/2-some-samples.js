@@ -8,7 +8,7 @@ module.exports = {
         {
           name: "Drums_1",
           type: "drums",
-          url: "https://audio.jukehost.co.uk/i9ZnMFYxA7BuJmu4M6oVzDAUFKL8epmT",
+          url: "https://audio.jukehost.co.uk/8dBo94YtjeV88oB0VjSVRRZGNpjeFzVA",
           tone: "G#",
           bpm: 122,
           styleId: 1,

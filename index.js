@@ -1,13 +1,18 @@
 const express = require("express");
-const SampleRouter = require("./routers/sampleRouter");
-const cors = require("cors");
-
-const PORT = 4000;
+const corsMiddleWare = require("cors");
+const authMiddleWare = require("./auth/middleware");
+const sampleRouter = require("./routers/sampleRouter");
+const authRouter = require("./routers/auth");
+const { PORT } = require("./config/constants");
 
 const app = express();
-app.use(express.json());
-app.use(cors());
 
-app.use("/samples", SampleRouter);
+app.use(corsMiddleWare());
+
+const bodyParserMiddleWare = express.json();
+app.use(bodyParserMiddleWare);
+
+app.use("/auth", authRouter);
+app.use("/samples", sampleRouter);
 
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));

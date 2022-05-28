@@ -1,25 +1,15 @@
 const { Router } = require("express");
-const router = new Router();
 const Sample = require("../models").sample;
 
-// All samples
+const router = new Router();
+
+// ALL SAMPLES
 
 router.get("/", async (req, res, next) => {
   try {
-    res.send(await Sample.findAll());
-  } catch (e) {
-    console.log(e);
-    next(e);
-  }
-});
-
-// DRUM SAMPLES
-
-router.get("/drums", async (req, res, next) => {
-  try {
-    const drumSamples = await Sample.findAll({ where: { type: "drums" } });
-    if (drumSamples) {
-      res.send(drumSamples);
+    const allSamples = await Sample.findAll();
+    if (allSamples) {
+      res.send(allSamples);
     } else {
       res.status(404).send("Sample not found");
     }
