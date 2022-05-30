@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { Op } = require("sequelize");
 const Sample = require("../models").sample;
+const OneShotSamples = require("../models").oneShotSample;
 
 const router = new Router();
 
@@ -18,7 +19,7 @@ router.get("/", async (req, res, next) => {
     next(e);
   }
 });
-// // FILTERED SAMPLES
+// // FILTERED SAMPLESnew
 
 // router.get("/:style/:type", async (req, res, next) => {
 //   const style = parseInt(req.params.style);
@@ -51,5 +52,20 @@ router.get("/", async (req, res, next) => {
 //     next(e);
 //   }
 // });
+
+// All OneShotSamples
+
+router.get("/oneshot", async (req, res, next) => {
+  try {
+    const samples = await OneShotSamples.findAll();
+    if (samples) {
+      res.send(samples);
+    } else {
+      res.status(404).send("Sample not found");
+    }
+  } catch (e) {
+    next(e);
+  }
+});
 
 module.exports = router;
