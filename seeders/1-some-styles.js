@@ -18,6 +18,16 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          name: "Chill",
+          backgroundImage: "123",
+          image:
+            "https://www.tunepocket.com/wp-main/uploads/Royalty-Free-Chillout-Music.jpg",
+          content:
+            "The definition of chill-out music has evolved throughout the decades, and generally refers to anything that might be identified as a modern type of easy listening.",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
