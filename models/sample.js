@@ -11,8 +11,12 @@ module.exports = (sequelize, DataTypes) => {
       sample.belongsTo(models.style, { foreignKey: "styleId" });
       sample.belongsToMany(models.user, {
         through: "myTracks",
-        foreignKey: "userId",
+        foreignKey: "sampleId",
       });
+      // sample.belongsToMany(models.user, {
+      //   through: "favorites",
+      //   foreignKey: "sampleId"
+      // })
     }
   }
   sample.init(
