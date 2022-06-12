@@ -13,10 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         through: "myTracks",
         foreignKey: "sampleId",
       });
-      // sample.belongsToMany(models.user, {
-      //   through: "favorites",
-      //   foreignKey: "sampleId"
-      // })
+      sample.belongsToMany(models.user, {
+        through: "favorites",
+        foreignKey: "sampleId",
+      });
     }
   }
   sample.init(

@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { Op } = require("sequelize");
+const Favorite = require("../migrations/5-favorite");
 const Sample = require("../models").sample;
 const OneShotSamples = require("../models").oneShotSample;
 
@@ -67,5 +68,33 @@ router.get("/oneshot", async (req, res, next) => {
     next(e);
   }
 });
+
+// // POST FAVORITE SAMPLE
+
+// router.post("/:userId/:sampleId", auth, async (req, res) => {
+//   const sample = await Sample.findByPk(req.params.id, { include: Favorite });
+//   const user = req.user;
+
+//   if (sample === null) {
+//     return res.status(404).send({ message: "This sample does not exist" });
+//   }
+
+//   if (!sample.userId === req.userId) {
+//     return res.status(403).send({
+//       message: "You are not authorized to add this sample to favorites",
+//     });
+//   }
+
+//   const { userId, sampleId } = req.body;
+
+//   const favoriteSample = await Favorite.create({
+//     userId: req.userId,
+//     sampleId: req.sampleId,
+//   });
+
+//   return res
+//     .status(201)
+//     .send({ message: "Favorite sample created", favoriteSample });
+// });
 
 module.exports = router;

@@ -19,12 +19,21 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: "Chill",
+          name: "Downtempo",
           backgroundImage: "123",
           image:
             "https://www.tunepocket.com/wp-main/uploads/Royalty-Free-Chillout-Music.jpg",
           content:
             "The definition of chill-out music has evolved throughout the decades, and generally refers to anything that might be identified as a modern type of easy listening.",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Chillhop",
+          backgroundImage: "123",
+          image: "123",
+          content:
+            "Lofi hip hop also known as chillhop and lofi beats is a form of downtempo that combines elements of hip hop and chill-out music.",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -34,6 +43,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("users", null, {});
+    await queryInterface.bulkDelete("styles", null, {});
   },
 };
