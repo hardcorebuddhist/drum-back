@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const corsMiddleWare = require("cors");
 const authMiddleWare = require("./auth/middleware");
