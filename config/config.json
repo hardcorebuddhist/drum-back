@@ -1,6 +1,6 @@
 {
   "development": {
-    "url": "postgres://fqxxvkbq:2EX72ePYe4ELY6Az0igu5QqHqcwB-tPO@tyke.db.elephantsql.com/fqxxvkbq",
+    "url": "postgres://fqxxvkbq:2EX72ePYe4ELY6Az0igu5QqHqcwB-tPO@tyke.db.elephantsql.com",
     "dialect": "postgres"
   },
   "production": {
